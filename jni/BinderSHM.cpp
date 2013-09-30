@@ -53,7 +53,7 @@ class BnSHM : public BnInterface<ISHM> {
   virtual status_t onTransact(uint32_t code, const Parcel& data, Parcel* reply, uint32_t flags = 0)
   {
     ALOGD("BnSHM::onTransact(%u)", code);
-    CHECK_INTERFACE(IScreenComposer, data, reply);
+    CHECK_INTERFACE(ISHM, data, reply);
     switch(code) {
       case SET_FD: {
              reply->writeInt32(setFD(data.readFileDescriptor()));
